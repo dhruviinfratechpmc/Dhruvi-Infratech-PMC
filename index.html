@@ -78,6 +78,30 @@
   .nav-cta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; padding: 8px 20px; border: 0.5px solid var(--gold); color: var(--gold); background: transparent; cursor: pointer; transition: all 0.2s; text-decoration: none; }
   .nav-cta:hover { background: var(--gold); color: var(--dark); }
 
+  /* HAMBURGER / 3-DOT MENU */
+  .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 210; }
+  .menu-toggle span { width: 24px; height: 2px; background: var(--gold); transition: all 0.3s ease; display: block; }
+  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle.open span:nth-child(2) { opacity: 0; }
+  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    position: fixed; top: 0; right: -100%; width: 75%; max-width: 320px; height: 100vh;
+    background: rgba(13,13,13,0.98); backdrop-filter: blur(16px);
+    z-index: 199; display: flex; flex-direction: column; justify-content: center;
+    padding: 2rem 2.5rem; gap: 0.5rem;
+    border-left: 0.5px solid var(--border);
+    transition: right 0.4s cubic-bezier(0.16,1,0.3,1);
+    box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.7rem 0; border-bottom: 0.5px solid rgba(184,161,106,0.12); transition: color 0.2s; letter-spacing: 0.02em; }
+  .mobile-menu a:hover, .mobile-menu a:active { color: var(--gold); }
+  .mobile-menu-header { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .mobile-menu-cta { margin-top: 1.5rem; padding: 14px; background: var(--gold); color: var(--dark) !important; text-align: center; font-family: 'DM Sans', sans-serif !important; font-size: 12px !important; letter-spacing: 0.15em; text-transform: uppercase; border: none !important; }
+  .menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 198; opacity: 0; visibility: hidden; transition: all 0.3s; }
+  .menu-overlay.open { opacity: 1; visibility: visible; }
+
   .hero {
     min-height: 100vh;
     display: flex; align-items: center; justify-content: center;
@@ -253,6 +277,8 @@
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .menu-toggle { display: flex; }
     section { padding: 4rem 1.5rem; }
     .about-grid, .contact-inner, .team-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .services-grid, .sectors-grid { grid-template-columns: 1fr; }
@@ -313,7 +339,24 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Engage Us</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">Dhruvi Infratech PMC</div>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#careers" onclick="closeMenu()">Careers</a>
+  <a href="#team" onclick="closeMenu()">Team</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#contact" class="mobile-menu-cta" onclick="closeMenu()">Engage Us</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -717,44 +760,38 @@
       <div class="gallery-item">
         <div class="gallery-placeholder">
           <div class="gallery-placeholder-icon">⊞</div>
-          <div class="gallery-placeholder-text">Add Photo<br>Hilton Conrad</div>
+          <div class="gallery-placeholder-text">Add Photo</div>
         </div>
-        <span class="gallery-label">Hotel Hilton Conrad, Jaipur</span>
       </div>
       <div class="gallery-item">
         <div class="gallery-placeholder">
           <div class="gallery-placeholder-icon">⊞</div>
-          <div class="gallery-placeholder-text">Add Photo<br>Brij Jawai Resort</div>
+          <div class="gallery-placeholder-text">Add Photo</div>
         </div>
-        <span class="gallery-label">Brij Jawai Resort, Jawai</span>
       </div>
       <div class="gallery-item">
         <div class="gallery-placeholder">
           <div class="gallery-placeholder-icon">⊞</div>
-          <div class="gallery-placeholder-text">Add Photo<br>Nuelife Hospital</div>
+          <div class="gallery-placeholder-text">Add Photo</div>
         </div>
-        <span class="gallery-label">Nuelife Hospital, Sikar Road</span>
       </div>
       <div class="gallery-item">
         <div class="gallery-placeholder">
           <div class="gallery-placeholder-icon">⊞</div>
-          <div class="gallery-placeholder-text">Add Photo<br>Brij Bageecha</div>
+          <div class="gallery-placeholder-text">Add Photo</div>
         </div>
-        <span class="gallery-label">Brij Bageecha Resort, Jaipur</span>
       </div>
       <div class="gallery-item">
         <div class="gallery-placeholder">
           <div class="gallery-placeholder-icon">⊞</div>
-          <div class="gallery-placeholder-text">Add Photo<br>Shalom School</div>
+          <div class="gallery-placeholder-text">Add Photo</div>
         </div>
-        <span class="gallery-label">Shalom International School, Kalwar</span>
       </div>
       <div class="gallery-item">
         <div class="gallery-placeholder">
           <div class="gallery-placeholder-icon">⊞</div>
-          <div class="gallery-placeholder-text">Add Photo<br>The Palace Aravalli</div>
+          <div class="gallery-placeholder-text">Add Photo</div>
         </div>
-        <span class="gallery-label">The Palace Aravalli Hotel</span>
       </div>
     </div>
     <!-- VIDEOS -->
@@ -763,25 +800,22 @@
         <div class="gallery-video-badge"></div>
         <div class="gallery-placeholder">
           <div class="gallery-placeholder-icon">▶</div>
-          <div class="gallery-placeholder-text">Add Video<br>Site Walkthrough</div>
+          <div class="gallery-placeholder-text">Add Video</div>
         </div>
-        <span class="gallery-label">Project Site Walkthrough</span>
       </div>
       <div class="gallery-item">
         <div class="gallery-video-badge"></div>
         <div class="gallery-placeholder">
           <div class="gallery-placeholder-icon">▶</div>
-          <div class="gallery-placeholder-text">Add Video<br>Drone View</div>
+          <div class="gallery-placeholder-text">Add Video</div>
         </div>
-        <span class="gallery-label">Aerial / Drone Progress</span>
       </div>
       <div class="gallery-item">
         <div class="gallery-video-badge"></div>
         <div class="gallery-placeholder">
           <div class="gallery-placeholder-icon">▶</div>
-          <div class="gallery-placeholder-text">Add Video<br>Project Reel</div>
+          <div class="gallery-placeholder-text">Add Video</div>
         </div>
-        <span class="gallery-label">Dhruvi Infratech Reel</span>
       </div>
     </div>
     <p class="gallery-note">More project visuals are added regularly. Follow us on Instagram for live site updates.</p>
@@ -976,6 +1010,18 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('.counter').forEach(function(el) { counterObserver.observe(el); });
+
+  // Mobile menu toggle
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.getElementById('menuOverlay').classList.toggle('open');
+    document.getElementById('menuToggle').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('menuOverlay').classList.remove('open');
+    document.getElementById('menuToggle').classList.remove('open');
+  }
 
   // Gallery tab switching
   function filterGallery(type, btn) {
