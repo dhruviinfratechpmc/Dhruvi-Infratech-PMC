@@ -10,6 +10,8 @@
 <meta property="og:title" content="Dhruvi Infratech PMC — Planning with Precision">
 <meta property="og:description" content="Client-side project management consultancy in Jaipur delivering landmark hospitality, commercial, residential, institutional & healthcare projects.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://dhruviinfratechpmc.github.io/Dhruvi-Infratech-PMC/">
+<link rel="canonical" href="https://dhruviinfratechpmc.github.io/Dhruvi-Infratech-PMC/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231A1A1A'/><rect x='20' y='45' width='10' height='35' fill='%23B8A16A'/><rect x='34' y='25' width='10' height='55' fill='%23B8A16A'/><rect x='48' y='38' width='10' height='42' fill='%23B8A16A'/><rect x='62' y='55' width='10' height='25' fill='%23B8A16A'/></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -181,6 +183,43 @@
   .why-item h4 { font-size: 14px; font-weight: 500; margin-bottom: 0.6rem; }
   .why-item p { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.45); }
 
+  /* GALLERY */
+  #gallery { background: #111111; }
+  .gallery-tabs { display: flex; gap: 1rem; margin-top: 2.5rem; margin-bottom: 2.5rem; }
+  .gallery-tab { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; padding: 8px 20px; border: 0.5px solid var(--border); color: rgba(255,255,255,0.6); background: transparent; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+  .gallery-tab.active, .gallery-tab:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .gallery-item { aspect-ratio: 4/3; border: 0.5px solid var(--border); background: linear-gradient(135deg, #1A1A1A, #2C2C2A); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.3s, border-color 0.3s; }
+  .gallery-item:hover { transform: scale(1.02); border-color: var(--gold); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery-placeholder { text-align: center; padding: 1rem; }
+  .gallery-placeholder-icon { font-size: 28px; color: var(--gold); opacity: 0.4; margin-bottom: 8px; }
+  .gallery-placeholder-text { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); line-height: 1.5; }
+  .gallery-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); font-size: 11px; letter-spacing: 0.08em; color: var(--white); }
+  .gallery-video-badge { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(184,161,106,0.9); display: flex; align-items: center; justify-content: center; }
+  .gallery-video-badge::before { content: ''; border-left: 9px solid var(--dark); border-top: 6px solid transparent; border-bottom: 6px solid transparent; margin-left: 2px; }
+  .gallery-note { margin-top: 2rem; font-size: 12px; color: var(--mid); text-align: center; font-style: italic; }
+  .gallery-hidden { display: none; }
+
+  /* CAREERS */
+  #careers { background: var(--dark2); }
+  .careers-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 1rem; }
+  .careers-perks { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  .perk-item { display: flex; gap: 10px; align-items: flex-start; }
+  .perk-icon { color: var(--gold); font-size: 14px; margin-top: 2px; }
+  .perk-text { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+  .jobs-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem; }
+  .job-card { padding: 1.8rem 2rem; border: 0.5px solid var(--border); background: rgba(184,161,106,0.03); display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center; transition: background 0.2s, border-color 0.2s; }
+  .job-card:hover { background: rgba(184,161,106,0.06); border-color: rgba(184,161,106,0.4); }
+  .job-title { font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+  .job-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 8px; }
+  .job-meta span { font-size: 11px; letter-spacing: 0.08em; color: var(--gold); }
+  .job-desc { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.6; max-width: 540px; }
+  .job-apply { white-space: nowrap; }
+  .careers-cta-note { margin-top: 2.5rem; padding: 1.5rem 2rem; border: 0.5px dashed var(--border); text-align: center; }
+  .careers-cta-note p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+  .careers-cta-note a { color: var(--gold); text-decoration: none; }
+
   #contact { background: #0D0D0D; }
   .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
   .contact-info p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.5); margin-bottom: 2rem; }
@@ -222,9 +261,34 @@
     .why-grid { grid-template-columns: 1fr; }
     .project-row { grid-template-columns: 40px 1fr 100px; }
     .project-row-status { display: none; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .careers-intro { grid-template-columns: 1fr; gap: 2rem; }
+    .careers-perks { grid-template-columns: 1fr; }
+    .job-card { grid-template-columns: 1fr; gap: 1rem; }
     footer { flex-direction: column; text-align: center; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Dhruvi Infratech PMC",
+  "description": "Client-side project management consultancy in Jaipur, Rajasthan delivering luxury hospitality, commercial, residential, institutional and healthcare projects.",
+  "url": "https://dhruviinfratechpmc.github.io/Dhruvi-Infratech-PMC/",
+  "telephone": "+91-7734023444",
+  "email": "Dhruviinfratechpmc@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Jagdamba Nagar, Ajmer Road",
+    "addressLocality": "Jaipur",
+    "addressRegion": "Rajasthan",
+    "addressCountry": "IN"
+  },
+  "areaServed": "India",
+  "knowsAbout": ["Project Management Consultancy", "Construction Management", "Hospitality PMC", "Healthcare Construction", "MEP Coordination"],
+  "slogan": "Planning with Precision"
+}
+</script>
 </head>
 <body>
 
@@ -244,7 +308,8 @@
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#team">Team</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#careers">Careers</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Engage Us</a>
@@ -637,6 +702,146 @@
   </div>
 </section>
 
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <span class="section-tag reveal">Our Work in Pictures</span>
+    <h2 class="section-title">Project Gallery</h2>
+    <p class="section-sub">A visual journey through our landmark projects — site progress, finished spaces, and milestones across hospitality, healthcare, and institutional builds.</p>
+    <div class="gallery-tabs reveal">
+      <button class="gallery-tab active" onclick="filterGallery('photos', this)">Photos</button>
+      <button class="gallery-tab" onclick="filterGallery('videos', this)">Videos</button>
+    </div>
+    <!-- PHOTOS -->
+    <div class="gallery-grid reveal" id="gallery-photos">
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">⊞</div>
+          <div class="gallery-placeholder-text">Add Photo<br>Hilton Conrad</div>
+        </div>
+        <span class="gallery-label">Hotel Hilton Conrad, Jaipur</span>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">⊞</div>
+          <div class="gallery-placeholder-text">Add Photo<br>Brij Jawai Resort</div>
+        </div>
+        <span class="gallery-label">Brij Jawai Resort, Jawai</span>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">⊞</div>
+          <div class="gallery-placeholder-text">Add Photo<br>Nuelife Hospital</div>
+        </div>
+        <span class="gallery-label">Nuelife Hospital, Sikar Road</span>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">⊞</div>
+          <div class="gallery-placeholder-text">Add Photo<br>Brij Bageecha</div>
+        </div>
+        <span class="gallery-label">Brij Bageecha Resort, Jaipur</span>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">⊞</div>
+          <div class="gallery-placeholder-text">Add Photo<br>Shalom School</div>
+        </div>
+        <span class="gallery-label">Shalom International School, Kalwar</span>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">⊞</div>
+          <div class="gallery-placeholder-text">Add Photo<br>The Palace Aravalli</div>
+        </div>
+        <span class="gallery-label">The Palace Aravalli Hotel</span>
+      </div>
+    </div>
+    <!-- VIDEOS -->
+    <div class="gallery-grid gallery-hidden" id="gallery-videos">
+      <div class="gallery-item">
+        <div class="gallery-video-badge"></div>
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">▶</div>
+          <div class="gallery-placeholder-text">Add Video<br>Site Walkthrough</div>
+        </div>
+        <span class="gallery-label">Project Site Walkthrough</span>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-video-badge"></div>
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">▶</div>
+          <div class="gallery-placeholder-text">Add Video<br>Drone View</div>
+        </div>
+        <span class="gallery-label">Aerial / Drone Progress</span>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-video-badge"></div>
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">▶</div>
+          <div class="gallery-placeholder-text">Add Video<br>Project Reel</div>
+        </div>
+        <span class="gallery-label">Dhruvi Infratech Reel</span>
+      </div>
+    </div>
+    <p class="gallery-note">More project visuals are added regularly. Follow us on Instagram for live site updates.</p>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section id="careers">
+  <div class="section-inner">
+    <span class="section-tag reveal">Join Our Team</span>
+    <h2 class="section-title">Build Your Career With Us</h2>
+    <div class="careers-intro">
+      <div>
+        <p class="section-sub">At Dhruvi Infratech PMC, you'll work on landmark 5-star hospitality, healthcare, and institutional projects alongside an experienced team — gaining exposure to international brand standards and end-to-end project delivery.</p>
+        <div class="careers-perks">
+          <div class="perk-item"><span class="perk-icon">◆</span><span class="perk-text">Work on prestigious projects like Hilton Conrad</span></div>
+          <div class="perk-item"><span class="perk-icon">◆</span><span class="perk-text">Hands-on exposure across all disciplines</span></div>
+          <div class="perk-item"><span class="perk-icon">◆</span><span class="perk-text">Growth-focused, learning environment</span></div>
+          <div class="perk-item"><span class="perk-icon">◆</span><span class="perk-text">Based in Jaipur, Pan-India project sites</span></div>
+        </div>
+      </div>
+      <div class="about-card" style="border:0.5px solid var(--border); background: rgba(184,161,106,0.04); padding: 2rem;">
+        <div class="about-card-num">We're Hiring</div>
+        <div class="about-card-label" style="margin-top:10px; line-height:1.6;">Site Engineers · MEP Engineers · Project Coordinators with construction & hospitality project experience</div>
+      </div>
+    </div>
+
+    <div class="jobs-list reveal">
+      <div class="job-card">
+        <div>
+          <div class="job-title">Site Engineer</div>
+          <div class="job-meta"><span>📍 Jaipur</span><span>Full-Time</span><span>2+ Years Experience</span></div>
+          <div class="job-desc">Oversee day-to-day site execution, quality control, and contractor coordination on luxury hospitality and healthcare projects. Hospital project experience preferred.</div>
+        </div>
+        <div class="job-apply"><a href="mailto:Dhruviinfratechpmc@gmail.com?subject=Application%20-%20Site%20Engineer" class="btn-primary">Apply Now</a></div>
+      </div>
+      <div class="job-card">
+        <div>
+          <div class="job-title">MEP Engineer</div>
+          <div class="job-meta"><span>📍 Jaipur</span><span>Full-Time</span><span>2+ Years Experience</span></div>
+          <div class="job-desc">Manage MEP coordination, drawing reviews, and on-site services execution (HVAC, electrical, plumbing, firefighting, ELV). Hotel/hospital MEP experience preferred.</div>
+        </div>
+        <div class="job-apply"><a href="mailto:Dhruviinfratechpmc@gmail.com?subject=Application%20-%20MEP%20Engineer" class="btn-primary">Apply Now</a></div>
+      </div>
+      <div class="job-card">
+        <div>
+          <div class="job-title">Project Coordinator</div>
+          <div class="job-meta"><span>📍 Jaipur</span><span>Full-Time</span><span>1+ Years Experience</span></div>
+          <div class="job-desc">Support documentation, consultant coordination, scheduling, and progress reporting across multiple active projects. Strong organisational skills required.</div>
+        </div>
+        <div class="job-apply"><a href="mailto:Dhruviinfratechpmc@gmail.com?subject=Application%20-%20Project%20Coordinator" class="btn-primary">Apply Now</a></div>
+      </div>
+    </div>
+
+    <div class="careers-cta-note reveal">
+      <p>Don't see a role that fits? We're always looking for talented people.<br>Send your resume to <a href="mailto:Dhruviinfratechpmc@gmail.com">Dhruviinfratechpmc@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
@@ -719,7 +924,8 @@
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#projects">Projects</a>
-    <a href="#team">Team</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#careers">Careers</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
@@ -770,6 +976,14 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('.counter').forEach(function(el) { counterObserver.observe(el); });
+
+  // Gallery tab switching
+  function filterGallery(type, btn) {
+    document.querySelectorAll('.gallery-tab').forEach(function(t) { t.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById('gallery-photos').classList.toggle('gallery-hidden', type !== 'photos');
+    document.getElementById('gallery-videos').classList.toggle('gallery-hidden', type !== 'videos');
+  }
 </script>
 
 </body>
